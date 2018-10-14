@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Вход
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'user:login' %}" method="post" class="pure-form">
+        {% csrf_token %}
+        <input class="form-control" type="text" name="username" placeholder="Login">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" class="form-control btn-primary">
+    </form>
+    <p>
+        <a href="{% url 'user:registration' %}">registration</a>
+    </p>
+{% endblock %}

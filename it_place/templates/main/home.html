@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Разработчик
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="right">
+			<div class="left_container">
+
+
+				<div class="module_photo shadow_box">
+					<div class="cont" style="background: url({{ it_user.img.thumb.url}}) center center / cover no-repeat;">
+						<img src="{{ it_user.img.thumb.url}}" alt="Фотография">
+					</div>
+					<div class="line">
+						<a class="subscribe_but" href="#" title="Подписаться">Подписаться</a>
+						<a class="add_but" href="#" title="Добавить в коллеги">Добавить в коллеги</a>
+					</div>
+				</div>
+
+				<div class="module_subscribes shadow_box">
+					<ul>
+						<li><a class="subscription" href="#" title="Подписки">Подписки <strong>(29)</strong></a></li>
+						<li><a class="followers" href="#" title="Подписчики">Подписчики <strong>(50)</strong></a></li>
+					</ul>
+				</div>
+
+				<div class="module_сolleag shadow_box">
+					<a class="colleagues" href="#" title="Коллеги">Коллеги <strong>(32)</strong></a>
+					<div class="mod_colleag_list">
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Аида Расулова</div>
+								<div class="pos_colleag">Дизайнер</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Магомед Курбанов</div>
+								<div class="pos_colleag">Androind-разаработчик</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Расул Ахмедов</div>
+								<div class="pos_colleag">PHP-программист</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Магоменд-Расул Гаджимурадов</div>
+								<div class="pos_colleag">Androind-разаработчик</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="module_project shadow_box">
+					<a class="projects" href="#" title="Коллеги">Проекты <strong>(10)</strong></a>
+					<div class="mod_project_list">
+						<a href="#" class="mod_project_block">
+							<div class="img_project" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_project">
+								<div class="name_project">Название проекта</div>
+							</div>
+						</a>
+						<a href="#" class="mod_project_block">
+							<div class="img_project" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_project">
+								<div class="name_project">Название проекта</div>
+							</div>
+						</a>
+						<a href="#" class="mod_project_block">
+							<div class="img_project" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_project">
+								<div class="name_project">Название проекта</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="module_project shadow_box">
+					<a class="events" href="#" title="Мероприятия">Мероприятия <strong>(0)</strong></a>
+					<div class="mod_project_list clear_list">
+						<span>Мероприятий нет</span>
+					</div>
+				</div>
+
+			</div>
+			<div class="right_container">
+			<div class="profile_name shadow_box">
+				<div class="block1"><div class="name">{{ it_user.first_name }} {{ it_user.last_name }}</div> <span class="profile_age"><strong>{{ it_user.get_age }}</strong> лет</span></div>
+				<div class="block2"><div class="posit">{{ it_user.get_specialty_display }}</div>
+                    {% if edu %}
+                        <span class="profile_teach">обучаю</span>&nbsp;
+                        <img src="/static/images/learner.png" alt="">
+                    {% endif %}
+            </div>
+			</div>
+			<div class="profile_info shadow_box">
+				<div class="block1">Общая информация
+					<ul class="social">
+						<li><a class="soc1" href="#" target="_Blank" title="soc1"></a></li>
+						<li><a class="soc2" href="#" target="_Blank"  title="soc2"></a></li>
+						<li><a class="soc3" href="#" target="_Blank"  title="soc3"></a></li>
+						<li><a class="soc4" href="#" target="_Blank"  title="soc4"></a></li>
+						<li><a class="soc5" href="#" target="_Blank"  title="soc5"></a></li>
+					</ul>
+				</div>
+				<div class="block2">
+					<div class="row">
+						<div class="cell">Город:</div>
+						<div class="cell">{{ it_user.get_city_display }}</div>
+					</div>
+					<div class="row">
+						<div class="cell">Опыт работы:</div>
+						<div class="cell">{{ it_user.experience }}</div>
+					</div>
+					<div class="row">
+						<div class="cell">Образование:</div>
+						<div class="cell">{{ it_user.education }}</div>
+					</div>
+					<div class="row">
+						<div class="cell">О себе:</div>
+						<div class="cell">{{ it_user.about }}</div>
+					</div>
+				</div>
+			</div>
+			<div class="profile_skills">
+				<a href="#" class="skill_teg shadow_box">Python</a>
+				<a href="#" class="skill_teg shadow_box">JavaScript</a>
+				<a href="#" class="skill_teg shadow_box">Angular</a>
+				<a href="#" class="skill_teg shadow_box">Django</a>
+				<a href="#" class="skill_teg shadow_box">Redis</a>
+				<a href="#" class="skill_teg shadow_box">RestApi</a>
+				<a href="#" class="skill_teg shadow_box">PHP</a>
+				<a href="#" class="skill_teg shadow_box">HTML</a>
+				<a href="#" class="skill_teg shadow_box">CSS</a>
+				<a href="#" class="skill_teg shadow_box">CSS3</a>
+			</div>
+			<div class="profile_portpholio shadow_box">
+                <div class="block1 portpholio_title">Портфолио <strong>(4)</strong></div>
+
+				<ul id="portpholio">
+					<li>
+						<div class="port_img" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="port_txt">Название проекта</div>
+					</li>
+					<li>
+						<div class="port_img" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="port_txt">Название проекта</div>
+					</li>
+					<li>
+						<div class="port_img" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="port_txt">Название проекта</div>
+					</li>
+					<li>
+						<div class="port_img" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="port_txt">Название проекта</div>
+					</li>
+					<li>
+						<div class="port_img" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="port_txt">Название проекта</div>
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="two_blocks">
+
+				<div class="module_screencast">
+				<div class="shadow_box">
+					<a class="screencasts" href="#" title="Коллеги">Скринкасты <strong>(5)</strong></a>
+					<div class="mod_screencast_list">
+						<a href="#" class="mod_screencast_block">
+							<div class="img_screencast" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_screencast">
+								<div class="date_screencast">10.08.2016</div>
+								<div class="name_screencast">ООП программирование</div>
+							</div>
+						</a>
+						<a href="#" class="mod_screencast_block">
+							<div class="img_screencast" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_screencast">
+								<div class="date_screencast">10.08.2016</div>
+								<div class="name_screencast">ООП программирование</div>
+							</div>
+						</a>
+						<a href="#" class="mod_screencast_block">
+							<div class="img_screencast" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_screencast">
+								<div class="date_screencast">10.08.2016</div>
+								<div class="name_screencast">ООП программирование</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				</div>
+
+				<div class="module_articles">
+				<div class="shadow_box">
+					<a class="articles" href="#" title="Коллеги">Статьи <strong>(5)</strong></a>
+					<div class="mod_articles_list">
+						<a href="#" class="mod_articles_block">
+							<div class="img_articles" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_articles">
+								<div class="date_articles">10.08.2016</div>
+								<div class="name_articles">Используем Celery</div>
+							</div>
+						</a>
+						<a href="#" class="mod_articles_block">
+							<div class="img_articles" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_articles">
+								<div class="date_articles">10.08.2016</div>
+								<div class="name_articles">Используем Celery</div>
+							</div>
+						</a>
+						<a href="#" class="mod_articles_block">
+							<div class="img_articles" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_articles">
+								<div class="date_articles">10.08.2016</div>
+								<div class="name_articles">Используем Celery</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				</div>
+
+			</div>
+
+			</div>
+		</div>
+{% endblock %}

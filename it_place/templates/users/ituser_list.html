@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Разработчики
+{% endblock %}
+
+{% block content %}
+
+    <div class="right">
+			<div class="headline">
+				<div class="head_title">Разработчики</div>
+				<ul class="head_menu">
+					<li><a class="active" href="#" title="Все">Все</a></li>
+					<li><a href="#" title="Коллеги">Коллеги</a></li>
+					<li><a href="#" title="Подписан">Подписан</a></li>
+					<li><a href="#" title="Подписки">Подписки</a></li>
+				</ul>
+				<div class="filter">
+					<form>
+						<input class="input_text search" type="text" value="">
+						<select class="input_select">
+							<option>Все</option>
+							<option>Backend-разработчик</option>
+							<option>Frontend-разработчик</option>
+							<option>Android-разработчик</option>
+							<option>iOS-разработчик</option>
+							<option>Дизайнер</option>
+							<option>Верстальщик</option>
+							<option>Десктоп-разработчик</option>
+						</select>
+						<select class="input_select">
+							<option>Все города</option>
+							<option>Москва</option>
+							<option>Санкт-питербур</option>
+							<option>Махачкала</option>
+							<option>Каспийск</option>
+							<option>Дербент</option>
+							<option>Кизляр</option>
+							<option>Хасавюрт</option>
+						</select>
+						<div>
+						<input id="inputcheckbox" type="checkbox">
+						<label for="inputcheckbox">Обучает</label>
+						</div>
+						<input class="input_text" type="text" placeholder="Навыки">
+					</form>
+				</div>
+				<div class="filter_but"></div>
+			</div>
+			<div class="list_item">
+            {% for ituser in ituser_list %}
+
+				<div class="item_block shadow_box">
+				<a class="a_item_block" href="{% url 'user:detail' ituser.id %}" >
+					<div class="learner">
+                        {% if ituser.edu %}
+					    <img src="{% static 'images/learner.png' %}" alt="Ученик">
+					    {% endif %}
+                    </div>
+					<div class="img_item" style="background: url({{ ituser.img.thumb.url }}) center center / cover no-repeat;">
+						<img src="{{ ituser.img.thumb.url }}" alt="{{ ituser.username }}" style="opacity: 0;">
+					</div>
+					<div class="name_item">{{ ituser.first_name }} {{ ituser.last_name }}, {{ ituser.get_age }} лет</div>
+					<div class="pos_item">{{ ituser.get_specialty_display }}</div>
+					<div class="skills_item">
+                    <div class="skills_item">
+						<a href="#" class="skill_teg_item">Python</a>
+						<a href="#" class="skill_teg_item">JavaScript</a>
+						<a href="#" class="skill_teg_item">Angular</a>
+						<a href="#" class="skill_teg_item">Django</a>
+						<a href="#" class="skill_teg_item">Redis</a>
+					</div>
+					</div>
+				</a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+{% endblock %}

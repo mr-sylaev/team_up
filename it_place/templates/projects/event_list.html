@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="right">
+			<div class="headline">
+				<div class="head_title">Проекты</div>
+				<ul class="head_menu projects_menu">
+					<li><a class="active" href="#" title="Разработчики">Разработчики</a></li>
+					<li><a href="#" title="Компании">Компании</a></li>
+					<li><a href="#" title="Мои проекты">Мои проекты</a></li>
+					<li><a href="#" title="Участвую">Участвую</a></li>
+				</ul>
+				<a class="add_project" href="{% url 'projects:create' %}" title="Добавить проект">Добавить</a>
+				<div class="filter">
+					<form>
+						<input class="input_text search" type="text" value="">
+						<select class="input_select">
+							<option>Вид проекта</option>
+							<option>Open Source</option>
+							<option>Социальные</option>
+							<option>Коммерческие</option>
+						</select>
+						<select class="input_select">
+							<option>Город</option>
+							<option>Москва</option>
+							<option>Санкт-питербур</option>
+							<option>Махачкала</option>
+							<option>Каспийск</option>
+							<option>Дербент</option>
+							<option>Кизляр</option>
+							<option>Хасавюрт</option>
+						</select>
+						<input class="input_text" type="text" placeholder="Навыки">
+					</form>
+				</div>
+				<div class="filter_but"></div>
+			</div>
+			<div class="list_item project_list">
+                {% for event in event_list %}
+				<div class="item_block shadow_box">
+				<a class="a_item_block" href="{% url 'projects:detail' event.id %}" title="Название проекта">
+					<div class="img_item_project" style="background: url({{ event.img.thumb.url }}) center center / cover no-repeat">
+						<img src="{{ event.img.thumb.url }}" alt="Название проекта" style="opacity: 0;">
+					</div>
+					<div class="title_item">{{ event.title }}</div>
+					<div class="desc_item">Проекиу нужны: {% for spec in event.specialty.all %} {{ spec }} {% endfor %}</div>
+					<div class="skills_item">
+						<a href="#" class="skill_teg_item">Python</a>
+						<a href="#" class="skill_teg_item">JavaScript</a>
+						<a href="#" class="skill_teg_item">Angular</a>
+						<a href="#" class="skill_teg_item">Django</a>
+						<a href="#" class="skill_teg_item">Redis</a>
+					</div>
+				</a>
+				</div>
+                {% endfor %}
+
+			</div>
+		</div>
+
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="right">
+			<div class="headline">
+				<div class="head_title">Мероприятия</div>
+				<ul class="head_menu projects_menu">
+					<li><a class="active" href="#" title="Все">Все</a></li>
+					<li><a href="#" title="Мои мероприятия">Мои мероприятия</a></li>
+					<li><a href="#" title="Участвую">Участвую</a></li>
+				</ul>
+				<a class="add_project" href="{% url 'event:create' %}" title="Создать мероприятие">Создать</a>
+				<div class="filter">
+					<form>
+						<input class="input_text search" type="text" value="">
+						<select class="input_select">
+							<option>Вид мероприятия</option>
+							<option>Хакатон</option>
+							<option>Конференция</option>
+							<option>Выставка</option>
+							<option>Лекция</option>
+						</select>
+						<select class="input_select">
+							<option>Город</option>
+							<option>Москва</option>
+							<option>Санкт-питербур</option>
+							<option>Махачкала</option>
+							<option>Каспийск</option>
+							<option>Дербент</option>
+							<option>Кизляр</option>
+							<option>Хасавюрт</option>
+						</select>
+					</form>
+				</div>
+				<div class="filter_but"></div>
+			</div>
+			<div class="list_item project_list">
+                {% for event in event_list %}
+				<div class="item_block shadow_box">
+				<a class="a_item_block" href="{% url 'event:detail' event.id %}" title="Название проекта">
+					<div class="date_item">
+						<span class="numb_item">{{ event.date_start|date:'j' }}-{{ event.date_end|date:'j' }}</span>
+						<span class="mount_item">{{ event.date_start|date:'M' }}-{{ event.date_end|date:'M' }}</span>
+					</div>
+					<div class="img_item_project" style="background: url({{ event.img.thumb.url }}) center center / cover no-repeat">
+						<img src="{{ event.img.thumb.url }}" alt="Название проекта" style="opacity: 0;                          ">
+					</div>
+					<div class="title_item">{{ event.title }}</div>
+					<div class="place_item">{{ event.get_type_display }}<div class="time_item">
+                        <span class="bef_time">{{ event.date_start|date:'G:i' }}</span>
+                    - <span class="aft_time">{{ event.date_end|date:'G:i' }}</span></div></div>
+{#					<div class="desc_item">Описание: {% for spec in event.about.all %} {{ spec }} {% endfor %}</div>#}
+                    <div style="height: 54px; display: block; overflow: hidden;" class="desc_item"><span style="font-weight: bold;">Описание: </span>{{ event.about }}</div>
+                    <div class="inv_item">Участвуют<strong>(37)</strong></div>
+				</a>
+				</div>
+				 {% endfor %}
+			</div>
+		</div>
+{% endblock %}

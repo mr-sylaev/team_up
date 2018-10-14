@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="right">
+			<div class="left_container">
+
+				<div class="module_photo shadow_box">
+					<div class="cont_event" style="background: url({{ event.img.thumb.url }}) center center / cover no-repeat;">
+						<img src="{{ event.img.thumb.url }}" alt="Фотография">
+					</div>
+					<div class="linev">
+
+						<a class="subscribe" href="#" title="Вступить">Вступить</a>
+
+					</div>
+				</div>
+
+				<div class="module_сolleag shadow_box">
+					<a class="colleagues" href="#" title="Коллеги">Уже в проекте <strong>(13)</strong></a>
+					<div class="mod_colleag_list">
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Аида Расулова</div>
+								<div class="pos_colleag">Дизайнер</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Магомед Курбанов</div>
+								<div class="pos_colleag">Androind-разаработчик</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Расул Ахмедов</div>
+								<div class="pos_colleag">PHP-программист</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Магоменд-Расул Гаджимурадов</div>
+								<div class="pos_colleag">Androind-разаработчик</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="module_сolleag shadow_box">
+					<a class="colleagues" href="#" title="Коллеги">Онлайн <strong>(3)</strong></a>
+					<div class="mod_colleag_list">
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Аида Расулова</div>
+								<div class="pos_colleag">Дизайнер</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Магомед Курбанов</div>
+								<div class="pos_colleag">Androind-разаработчик</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Расул Ахмедов</div>
+								<div class="pos_colleag">PHP-программист</div>
+							</div>
+						</a>
+						<a href="#" class="mod_colleag_block">
+							<div class="img_colleag" style="background: url(/static/images/nophoto.jpg) center center / cover no-repeat;">
+								<img src="/static/images/nophoto.jpg" alt="Не фото">
+							</div>
+							<div class="txt_colleag">
+								<div class="name_colleag">Магоменд-Расул Гаджимурадов</div>
+								<div class="pos_colleag">Androind-разаработчик</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+			</div>
+			<div class="right_container">
+			<div class="profile_info shadow_box">
+				<div class="block1 evblock1">
+					<div class="lefthead_event">
+						<div class="title_event">{{ event.title }}</div>
+						<div class="type_event">{{ event.get_type_display }}</div>
+					</div>
+					<div class="righthead_event">
+						<img src="/static/images/nophoto.jpg" alt="Нет фото">
+						<div class="creat_event">Создатель</div>
+						<div class="creator_event">{{ event.create_by.first_name }} {{ event.create_by.second_name }}</div>
+					</div>
+				</div>
+				<div class="block2">
+					<div class="row">
+						<div class="cell">Город:</div>
+						<div class="cell">{{ event.get_city_display }}</div>
+					</div>
+					<div class="row">
+						<div class="cell">Проекту нужны:</div>
+						<div class="cell">{% for spec in event.specialty.all %} {{ spec }} {% endfor %}</div>
+					</div>
+					<div class="row">
+						<div class="cell">Описание:</div>
+						<div class="cell">{{ event.about }}</div>
+					</div>
+				</div>
+			</div>
+			<div class="profile_skills">
+				<a href="#" class="skill_teg shadow_box">Python</a>
+				<a href="#" class="skill_teg shadow_box">JavaScript</a>
+				<a href="#" class="skill_teg shadow_box">Angular</a>
+				<a href="#" class="skill_teg shadow_box">Django</a>
+				<a href="#" class="skill_teg shadow_box">Redis</a>
+				<a href="#" class="skill_teg shadow_box">RestApi</a>
+				<a href="#" class="skill_teg shadow_box">PHP</a>
+				<a href="#" class="skill_teg shadow_box">HTML</a>
+				<a href="#" class="skill_teg shadow_box">CSS</a>
+				<a href="#" class="skill_teg shadow_box">CSS3</a>
+			</div>
+
+			<div class="chat_project shadow_box">
+
+				<div class="chat_title">Чат</div>
+
+				<div class="message_list">
+					<div class="message_block">
+						<div class="message_img">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="message_txt">
+							<div class="message_name">Аида Расулова</div>
+							<div class="message_text">Привет, как дела?</div>
+						</div>
+					</div>
+					<div class="message_block">
+						<div class="message_img">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="message_txt">
+							<div class="message_name">Иван Иванов</div>
+							<div class="message_text">Привет, хорошо</div>
+						</div>
+					</div>
+					<div class="message_block">
+						<div class="message_img">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="message_txt">
+							<div class="message_name">Аида Расулова</div>
+							<div class="message_text">Какие у тебя качества?</div>
+						</div>
+					</div>
+					<div class="message_block">
+						<div class="message_img">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="message_txt">
+							<div class="message_name">Иван Иванов</div>
+							<div class="message_text">Целеустремленность‚ ответственность‚ креативность‚ аккуратность‚ стремление к профессиональному развитию и обучению</div>
+						</div>
+					</div>
+					<div class="message_block">
+						<div class="message_img">
+							<img src="/static/images/nophoto.jpg" alt="Не фото">
+						</div>
+						<div class="message_txt">
+							<div class="message_name">Аида Расулова</div>
+							<div class="message_text">Отлично</div>
+						</div>
+					</div>
+				</div>
+
+				<form class="message_form">
+					<textarea type="text" name="" value=""></textarea>
+					<input type="submit" value="Отправить">
+				</form>
+				<div class="rasp"></div>
+			</div>
+
+			</div>
+		</div>
+
+{% endblock %}
+
+

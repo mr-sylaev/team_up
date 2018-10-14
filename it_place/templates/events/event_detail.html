@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="right">
+			<div class="left_container">
+
+				<div class="module_photo shadow_box">
+					<div class="date_item">
+						<span class="numb_item">{{ event.date_start|date:'j' }}-{{ event.date_end|date:'j' }}</span>
+						<span class="mount_item">{{ event.date_start|date:'M' }}</span>
+					</div>
+					<div class="cont_event" style="background: url({{ event.img.thumb.url }}) center center / cover no-repeat;">
+						<img src="{{ event.img.thumb.url }}" alt="Фотография">
+					</div>
+					<div class="line">
+
+					<div class="time_item"><span class="bef_time">{{ event.date_start|date:'G:i'}}
+                    </span>-<span class="aft_time">{{ event.date_end|date:'G:i' }}</span></div>
+
+					</div>
+				</div>
+
+				<div class="module_subscribes shadow_box">
+					<ul>
+						<li><a class="subscription" href="#" title="Подписки">Вступить</a></li>
+						<li><a class="followers" href="#" title="Подписчики">Участвуют <strong>(39)</strong></a></li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="right_container">
+			<div class="profile_info shadow_box">
+				<div class="block1 evblock1">
+					<div class="lefthead_event">
+						<div class="title_event">Название мероприятия</div>
+						<div class="type_event">{{ event.get_type_display }}</div>
+					</div>
+					<div class="righthead_event">
+						<img src="/static/images/nophoto.jpg" width="20px" alt="Нет фото">
+						<div class="creat_event">Создатель</div>
+						<div class="creator_event">{{ event.create_by.first_name }} {{ event.create_by.second_name }}</div>
+					</div>
+				</div>
+				<div class="block2">
+					<div class="row">
+						<div class="cell">Город:</div>
+						<div class="cell">{{ event.get_city_display }}</div>
+					</div>
+					<div class="row">
+						<div class="cell">Для кого:</div>
+						<div class="cell">{% for spec in event.specialty.all %} {{ spec }} {% endfor %}</div>
+					</div>
+					<div class="row">
+						<div class="cell">Описание:</div>
+						<div class="cell">{{ event.about }}</div>
+					</div>
+				</div>
+			</div>
+			<div class="profile_skills">
+				<a href="#" class="skill_teg shadow_box">Python</a>
+				<a href="#" class="skill_teg shadow_box">JavaScript</a>
+				<a href="#" class="skill_teg shadow_box">Angular</a>
+				<a href="#" class="skill_teg shadow_box">Django</a>
+				<a href="#" class="skill_teg shadow_box">Redis</a>
+				<a href="#" class="skill_teg shadow_box">RestApi</a>
+				<a href="#" class="skill_teg shadow_box">Php</a>
+				<a href="#" class="skill_teg shadow_box">HTML</a>
+				<a href="#" class="skill_teg shadow_box">CSS</a>
+				<a href="#" class="skill_teg shadow_box">CSS3</a>
+			</div>
+
+			<div class="event_photos shadow_box">
+				<div class="event_pht_title">Итоги:</div>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<a href="#" class="event_pht"><img src="{% static 'images/nophoto.jpg' %}" width="310" tilte="Нет фото"></a>
+				<div class="rasp"></div>
+			</div>
+
+			</div>
+		</div>
+
+{% endblock %}

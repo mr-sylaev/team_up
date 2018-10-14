@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Редактирование профиля
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'user:update' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="form-control btn-primary">
+    </form>
+{% endblock %}

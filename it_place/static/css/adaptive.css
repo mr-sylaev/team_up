@@ -1,0 +1,35 @@
+.adaptive {
+    width: 1120px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1160px) {
+	.adaptive {
+		width: 920px;
+		padding: 0 20px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+	.adaptive {
+		width: 728px;
+		padding: 0 20px;
+	}
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+	.adaptive {
+		width: 100%;
+		padding: 0 10px;
+		box-sizing: border-box;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.adaptive {
+		width: 100%;
+		padding: 0 10px;
+		box-sizing: border-box;
+	}
+}

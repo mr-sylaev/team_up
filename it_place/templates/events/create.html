@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    Новое мероприятие
+{% endblock %}
+{% block content %}
+    <div class="right">
+<form action="{% url 'event:create' %}"
+      method="post"
+      enctype="multipart/form-data"
+      class="pure-form pure-form-stacked"
+>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="form-control btn-primary" value="Создать мероприятие">
+    </form>
+    </div>
+{% endblock %}

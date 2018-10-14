@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Главная{% endblock %} | Team_UP</title>
+  <link rel="stylesheet" href="{% static 'css/forms-min.css' %}">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="{% static 'css/reset.css' %}" rel="stylesheet" media="screen">
+   <link href="{% static 'css/lightslider.min.css' %}" rel="stylesheet" media="screen">
+   <link href="{% static 'css/styles.css' %}" rel="stylesheet" media="screen">
+   <link href="{% static 'css/adaptive.css' %}" rel="stylesheet" media="screen">
+ </head>
+ <body>
+	<div class="main_container">
+		<header>
+			<div class="adaptive">
+                <a class="logo" href="/" title="На главную">Team_<span style="font-style: italic">UP</span></a>
+			<ul>
+				<li><a href="#" >О проекте</a></li>
+				<li><a href="#" >Помощь</a></li>
+				<li><a href="{% url 'user:logout' %}" >Выйти</a></li>
+			</ul>
+			</div>
+		</header>
+		<section class="adaptive">
+		<div class="left">
+			<ul class="left_menu shadow_box">
+				<li><a href="/" title="Мой профиль">Мой профиль</a></li>
+				<li><a href="{% url 'projects:list' %}" title="Проекты">Проекты</a></li>
+				<li><a href="{% url 'event:list' %}" title="Мероприятия">Мероприятия</a></li>
+				<li><a href="{% url 'user:list' %}" title="Разработчики">Разработчики</a></li>
+				<li><a href="#" title="Компании">Компании</a></li>
+{#				<li><a href="#" title="Скринкасты">Скринкасты</a></li>#}
+{#				<li><a href="#" title="Статьи">Статьи</a></li>#}
+{#				<li><a href="#" title="Обучение">Обучение</a></li>#}
+			</ul>
+		</div>
+
+    {% block content %}
+
+    {% endblock %}
+
+        </section>
+	</div>
+	<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+	<script src="{% static 'js/lightslider.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+ </body>
+</html>

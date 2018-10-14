@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>IT-place</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="/static/css/reset.css" rel="stylesheet" media="screen">
+   <link href="/static/css/lightslider.min.css" rel="stylesheet" media="screen">
+   <link href="/static/css/styles.css" rel="stylesheet" media="screen">
+   <link href="/static/css/mainpage.css" rel="stylesheet" media="screen">
+   <link href="/static/css/adaptive.css" rel="stylesheet" media="screen">
+ </head>
+ <body>
+	<div class="main_container">
+		<header>
+			<div class="adaptive">
+			<a class="logo" href="/" title="На главную">Team_<span style="font-style: italic">UP</span></a>
+			<ul>
+				<li><a href="#" title="О компании">О компании</a></li>
+				<li><a href="#" title="Помощь">Помощь</a></li>
+			</ul>
+			</div>
+		</header>
+		<section class="main_block1">
+		<div class="adaptive">
+		<form class="login" action="{% url 'user:login' %}" method="post">
+            {% csrf_token %}
+			<input type="text" placeholder="Введите логин" name="username">
+			<input type="password" placeholder="Введите пароль" class="pass" name="password">
+			<input type="submit" value="Войти">
+		</form>
+		</div>
+		</section>
+		<section class="main_block2">
+		<div class="adaptive">
+			<div class="main_table">
+				<div class="main_coll">
+				
+					<div class="main_title">Разработчикам:</div>
+					<div class="main_tegs">Web-дизайнеры, Backend, Frontend, Менеджеры</div>
+					<div class="main_icon"><img src="/static/images/main1.png" alt="Разработчикам"></div>
+					<div class="main_desc">Это площадка, где Вы сможете найти себе команду и проект, быть в курсе событий в IT, сможете найти единомышленников, обучаться у более опытных разработчиков. У Вас будет возможность проверить свой уровень знаний, проходя тесты компаний и других разработчиков. Также, можно будет обучать других платно или бесплатно.</div>
+					
+				</div>
+{#				<div class="main_coll">#}
+				
+{#					<div class="main_title">Компаниям:</div>#}
+{#					<div class="main_tegs">менеджеры, IT-компании</div>#}
+{#					<div class="main_icon"><img src="/static/images/main2.png" alt="Компаниям"></div>#}
+{#					<div class="main_desc">С помощью IT-place компания сможет пригласить к себе разработчиков , а также проверить их уровень знаний благодаря тестам, просматривать проекты молодых команд, не терять связь с потенциальными сотрудниками. Также, заинтересовать разработчиков с помощью скринкастов, статей и тестов. Компания сможет предложить разработчикам участвовать в своих проектах, тем самым развивая в них необходимые навыки.</div>#}
+					
+{#				</div>#}
+			</div>
+		</div>
+		</section> 
+		<section class="main_block3">
+			<div class="regestr adaptive">
+			<span><a href="{% url 'user:registration' %}" tilte="Зарегистрироваться как разработчик">Зарегистрироваться как разработчик</a></span>
+{#			<span><a href="#" tilte="Зарегистрироваться как компания">Зарегистрироваться как компания</a></span>#}
+			</div>
+		</section>
+	</div>
+	<script src="/static/js/jquery-3.1.1.min.js"></script>
+	<script src="/static/js/lightslider.min.js"></script>
+	<script src="/static/js/script.js"></script>
+ </body> 
+</html>
